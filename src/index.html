@@ -3,27 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <link
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
       crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    <link rel="shortcut icon" href="./4geeks.ico" />
+    <title>Domain Generator</title>
   </head>
-  <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
+  <body class="myDiv">
+    <h1>Domain Name Generator</h1>
+    <p>Click the button to generate a domain name:</p>
+    <p id="domain"></p>
+    <button onclick="generateDomain()">Generate Domain</button>
+
+    <div class="at">
+      <i class="fa-solid fa-at fa-bounce" style="color: #fafafa;"></i>
     </div>
+
+    <script>
+      const prefixes = ["tech", "web", "nest", "online", "cloud", "funky"];
+      const words = [
+        "genius",
+        "connect",
+        "hub",
+        "buzz",
+        "solutions",
+        "nerd",
+        "fox",
+        "underground"
+      ];
+      const domains = [".com", ".net", ".org", ".io", ".app", ".info", ".us"];
+
+      function generateDomain() {
+        const randomPrefix =
+          prefixes[Math.floor(Math.random() * prefixes.length)];
+        const randomWord = words[Math.floor(Math.random() * words.length)];
+        const randomDomain =
+          domains[Math.floor(Math.random() * domains.length)];
+        const domainName = randomPrefix + randomWord + randomDomain;
+        document.getElementById("domain").textContent =
+          "Generated Domain: " + domainName;
+      }
+    </script>
   </body>
 </html>
